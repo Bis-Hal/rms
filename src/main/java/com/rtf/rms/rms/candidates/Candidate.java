@@ -1,6 +1,7 @@
 package com.rtf.rms.rms.candidates;
 
 import com.rtf.rms.rms.current_organizations.CurrentOrganization;
+import com.rtf.rms.rms.interview.Interview;
 import com.rtf.rms.rms.stages.Stage;
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Builder
+@ToString
 @NoArgsConstructor
 public class Candidate{
         @SequenceGenerator(
@@ -40,6 +42,10 @@ public class Candidate{
         @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "stageId")
         private Stage stage;
+        @Transient
+        @OneToMany(fetch = FetchType.EAGER)
+        @JoinColumn(name = "interviewId")
+        private Interview interview;
         
 
 

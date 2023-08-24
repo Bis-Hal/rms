@@ -10,6 +10,7 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
+@ToString
 @NoArgsConstructor
 public class CurrentOrganization {
     @SequenceGenerator(

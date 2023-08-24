@@ -39,10 +39,10 @@ class CandidateControllersTest {
 
         Optional<Stage> internshipStage = stageRepository.findByStage("Internship");
                     Candidate ethan = Candidate.builder()
-                            .name("Bean Bestwood")
-                            .address("Manchester,England")
-                            .dob(LocalDate.of(2000, 5, 1))
-                            .gender("Male")
+                            .name("Siwa Chand")
+                            .address("Dhachowk,Kathmandu")
+                            .dob(LocalDate.of(2001, 5, 1))
+                            .gender("Female")
                             .contact("1234567890")
                             .enrollDate(LocalDate.of(2020, 5, 1))
                             .expectedSalary(110_000L)
@@ -51,5 +51,12 @@ class CandidateControllersTest {
                             .build();
                     candidateRepository.save(ethan);
 
+    }
+
+    @Test
+    void getCandidate(){
+        if (candidateRepository.findById(1L).isPresent()) {
+            System.out.println(candidateRepository.findById(1L).get().toString());
+        }
     }
 }

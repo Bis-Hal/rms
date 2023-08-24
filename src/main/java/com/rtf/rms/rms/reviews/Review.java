@@ -1,5 +1,6 @@
 package com.rtf.rms.rms.reviews;
 
+import com.rtf.rms.rms.interview.Interview;
 import com.rtf.rms.rms.questions.Question;
 import com.rtf.rms.rms.users.User;
 import jakarta.persistence.*;
@@ -11,6 +12,7 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
+@ToString
 @NoArgsConstructor
 public class Review {
     @Id
@@ -26,10 +28,14 @@ public class Review {
     Long reviewId;
     String comment;
     int rating;
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    User userId;
+//    @ManyToOne
+//    @JoinColumn(name = "userId")
+//    User userId;
     @ManyToOne
     @JoinColumn(name = "questionId")
     Question questionId;
+    @ManyToOne
+    @JoinColumn(name = "interviewId")
+    Interview interviewId;
+
 }

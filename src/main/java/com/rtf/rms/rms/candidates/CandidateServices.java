@@ -14,6 +14,7 @@ public class CandidateServices {
         this.candidateRepository = candidateRepository;
     }
     public List<Candidate> getCandidates() {
+
         return candidateRepository.findAll();
     }
 }

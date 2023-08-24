@@ -1,10 +1,11 @@
 package com.rtf.rms.rms.interview;
 
 import com.rtf.rms.rms.candidates.Candidate;
-import com.rtf.rms.rms.interviewDetails.InterviewDetail;
-import com.rtf.rms.rms.users.User;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "interviews")
@@ -12,6 +13,7 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
+@ToString
 @NoArgsConstructor
 public class Interview {
     @SequenceGenerator(
@@ -24,14 +26,24 @@ public class Interview {
             generator = "interviewId"
     )
     @Id
-            Long interviewId;
-    @ManyToOne
-    @JoinColumn(name = "InterviewDetailId")
-    InterviewDetail interviewDetailId;
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    User userId;
+    Long interviewId;
+
     @ManyToOne
     @JoinColumn(name = "candidateId")
     Candidate candidateId;
+
+    @Column(name = "location")
+    String location;
+
+    @Column(name = "date")
+    LocalDate date;
+
+    @Column(name = "start_time")
+    LocalTime startTime;
+
+    @Column(name = "end_time")
+    LocalTime endTime;
+
+
 }
+

@@ -13,7 +13,13 @@ public class CandidateDTOMapper {
         candidates.forEach(candidate -> {
             candidateDTOS.add(CandidateDTO.builder()
                     .name(candidate.getName())
-                    .address(candidate.getAddress()).build());
+                    .address(candidate.getAddress())
+                    .dob(candidate.getDob().toString())
+                    .expectedSalary(Math.toIntExact(candidate.getExpectedSalary()))
+                    .phoneNumber(candidate.getContact())
+                    .gender(candidate.getGender())
+                    .candidateId(Math.toIntExact(candidate.getCandidateId()))
+                    .build());
         });
         return candidateDTOS;
     }

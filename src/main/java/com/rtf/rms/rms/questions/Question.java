@@ -1,6 +1,5 @@
 package com.rtf.rms.rms.questions;
 
-import com.rtf.rms.rms.interviewDetails.InterviewDetail;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Setter
 @Getter
+@ToString
 @Builder
 @NoArgsConstructor
 public class Question {
@@ -23,7 +23,5 @@ public class Question {
     )
     @Id
     Long question_id;
-    @ManyToOne
-    @JoinColumn(name = "interviewDetailId")
-    InterviewDetail interviewDetailId;
+    String question;
 }

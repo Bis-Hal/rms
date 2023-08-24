@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 @Data
 @ToString
 public class CandidateDTO {
+    private int candidateId;
     private String name;
     private String address;
+    private int expectedSalary;
+    private String phoneNumber;
+    private String gender;
+    private String dob;
 }
